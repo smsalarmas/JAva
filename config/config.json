@@ -1,6 +1,15 @@
 {    
     "lectura" : {    
-        "nombre de pc" : "pc_1" , 
+        "nombre de pc" : "id_pc" ,
+        "nombre de archivo" : "nom_archivo" ,
+        "Fecha Creacion" : "F_crea" ,
+        "Fecha Modificacion" : "F_modi" ,
+        "nombre de pc" : "id_pc" ,
+        "nombre de pc" : "id_pc" ,
+        "nombre de pc" : "id_pc" 
+
+
+
           
     
     }    
