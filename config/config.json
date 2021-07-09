@@ -1,13 +1,9 @@
-{    
-    "lectura" : {    
-        "nombre de pc" : "id_pc" ,
-        "nombre de archivo" : "nom_archivo" ,
-        "Fecha Creacion" : "F_crea" ,
-        "Fecha Modificacion" : "F_modi" ,
-        "Ubicacion" : "ubicacion"
-         
-  /* for(int i=0;i<N;i++){
-        System.out,println(lectura[i]+" ");
-        }*/
-    }    
-}  
+ {
+    "nombreJson":{        
+        "extensiones":[".dll", ".exe", ".docx", ".xlsx", ".png"],
+        "carpetas":["C:\\Usuarios\\Juan-Perez\\Mis Imagenes", "C:\\system32"],
+        "archivos":["virus.exe", "informacionConfidencial.txt"]
+
+        [{"ubicacion":"C://Users//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"}]
+    }
+}
