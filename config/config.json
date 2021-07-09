@@ -1,17 +1,9 @@
-{    
-    "escaner" : {    
-        "nombre de pc" : "id_pc" ,
-        "nombre de archivo" : "nom_archivo" ,
-        "Fecha Creacion" : "Fecha_creacion" ,
-        "Fecha Modificacion" : "Fecha_modificacion" ,
-        "extension" : "extension",
-        "Ubicacion" : "ubicacion"
-         
-  /* for(int i=0;i<N;i++){
-        System.out,println(escaner[i]+" ");
-        }*/
+ {
+    "nombreJson":{        
+        "extensiones":[".dll", ".exe", ".docx", ".xlsx", ".png"],
+        "carpetas":["C:\\Usuarios\\Juan-Perez\\Mis Imagenes", "C:\\system32"],
+        "archivos":["virus.exe", "informacionConfidencial.txt"]
 
-        
-
-    }    
-}  
+        [{"ubicacion":"C://sers//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"}]
+    }
+}
