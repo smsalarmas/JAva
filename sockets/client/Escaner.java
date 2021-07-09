@@ -14,7 +14,7 @@ public class Escaner {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException, ParseException {
         Cliente cliente = new Cliente(); 
 
-        //First Employee
+        //Primera empleada
         JSONObject propiedades = new JSONObject();
         JSONArray listaArchivos = new JSONArray();
 
