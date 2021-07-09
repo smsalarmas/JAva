@@ -1,13 +1,17 @@
 {    
-    "lectura" : {    
+    "escaner" : {    
         "nombre de pc" : "id_pc" ,
         "nombre de archivo" : "nom_archivo" ,
-        "Fecha Creacion" : "F_crea" ,
-        "Fecha Modificacion" : "F_modi" ,
+        "Fecha Creacion" : "Fecha_creacion" ,
+        "Fecha Modificacion" : "Fecha_modificacion" ,
+        "extension" : "extension",
         "Ubicacion" : "ubicacion"
          
   /* for(int i=0;i<N;i++){
-        System.out,println(lectura[i]+" ");
+        System.out,println(escaner[i]+" ");
         }*/
+
+        
+
     }    
 }  
