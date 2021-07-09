@@ -4,6 +4,6 @@
         "carpetas":["C:\\Usuarios\\Juan-Perez\\Mis Imagenes", "C:\\system32"],
         "archivos":["virus.exe", "informacionConfidencial.txt"]
 
-        [{"ubicacion":"C://sers//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"}]
+        [{"ubicacion":"C://Users//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"}]
     }
 }
