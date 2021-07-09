@@ -81,7 +81,7 @@ public class config {
     private static void leer(){
 
         JSONObject pc1 = New JSONObject();
-        pc1.put("ubucacion", "C://sers//USUARIO//Documents//VS code//JavaScanFile ");
+        pc1.put("ubucacion", "C://Users//USUARIO//Documents//VS code//JavaScanFile ");
         pc1.put("extension", ".txt");
         pc1.put("nombre", "readme" );
 
