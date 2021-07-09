@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class Server {
 
@@ -22,9 +23,13 @@ public class Server {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         
         try {
+            //DOTENV para utilizar variables de entornor
+            Dotenv dotenv = Dotenv.load();
             Class.forName("com.mysql.jdbc.Driver");
             ResultSet resultSet;
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/inventario?user=javaTest&password=123456&zeroDateTimeBehavior=convertToNull");
+            //STRING DE CONEXIÓN
+            System.out.println("jdbc:mysql://" +dotenv.get("DB_HOST")+"/"+dotenv.get("DB_NOMBRE")+"?user="+dotenv.get("DB_USUARIO")+"&password="+dotenv.get("DB_CLAVE")+"&zeroDateTimeBehavior=convertToNull");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://" +dotenv.get("DB_HOST")+"/"+dotenv.get("DB_NOMBRE")+"?user="+dotenv.get("DB_USUARIO")+"&password="+dotenv.get("DB_CLAVE")+"&zeroDateTimeBehavior=convertToNull");
             Statement statement = connection.createStatement();
             //Socket de servidor para esperar peticiones de la red
             ServerSocket serverSocket = new ServerSocket(PORT);
