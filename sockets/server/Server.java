@@ -6,6 +6,9 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
+
+import com.mysql.jdbc.CommunicationsException;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Server {
@@ -51,22 +54,26 @@ public class Server {
                     case 1: //INSERT
                     //se lee peticion del cliente
                     String request = input.readLine();
-                    System.out.println("CLIENT --> QUERY: [" + request +  "]");
-                    PreparedStatement preparedStatement = connection.prepareStatement(request);
-                    int countResp = preparedStatement.executeUpdate();
-                    if(countResp > 0){
-                        output.flush();
-                        //Se envía al cliente
-                        output.println("Registro creado satisfactoriamente.");
-                        //Log para el server
-                        System.out.println("Registro creado satisfactoriamente.");
-                    } else {
-                        output.flush();
-                        //Se envía al cliente
-                        output.println("Ha ocurrido un error al realizar el query.");
-                        //Log para el server
-                        System.out.println("Ha ocurrido un error al realizar el query.");
-                    } 
+                    while(request != null){
+                        System.out.println("CLIENT --> QUERY: [" + request +  "]");
+                        PreparedStatement preparedStatement = connection.prepareStatement(request);
+                        int countResp = preparedStatement.executeUpdate();
+                        if(countResp > 0){
+                            output.flush();
+                            //Se envía al cliente
+                            output.println("Registro creado satisfactoriamente.");
+                            //Log para el server
+                            System.out.println("Registro creado satisfactoriamente.");
+                        } else {
+                            output.flush();
+                            //Se envía al cliente
+                            output.println("Ha ocurrido un error al realizar el query.");
+                            //Log para el server
+                            System.out.println("Ha ocurrido un error al realizar el query.");
+                        }
+
+                        request = input.readLine();
+                    }
                         //cierra conexion
                         clientSocket.close();
                         break;
@@ -112,6 +119,8 @@ public class Server {
             }    
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
+        } catch (CommunicationsException ex) {
+            System.err.println("\n\n------------ NO SE HA INICIADO EL SERVIDOR DE LA BASE DE DATOS------------ \n\n" + ex.getMessage());
         }
     }
 }
