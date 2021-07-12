@@ -61,8 +61,8 @@ public class Escaner {
 
                         //El metodo put asigna un dato del tipo (key, valor)
                         propiedades.put("nombre", nombre);
-                        propiedades.put("ubicacion", ubicacion);
-                        propiedades.put("extension", extension);
+                        propiedades.put("ubicacion", ubicacion.replace("\\", "/"));
+                        propiedades.put("extension", "."+extension);
                         propiedades.put("peso", kilobytes);
 
                          //Agregamos las propiedades actuales a listaArchivos que es un JSONArray
@@ -79,13 +79,13 @@ public class Escaner {
                         long peso = sizeCarpeta(f);
                         long pesoCarpeta = (peso/1024);
                         System.out.println("Nombre de la Carpeta ----> " + nombreCarpeta);
-                        System.out.println("Ubicacion ----> " + ubicacionCarpeta);
+                        System.out.println("Ubicacion ----> " + ubicacionCarpeta.replace("\\", "/"));
                         System.out.println("Extension ----> Carpeta" );
                         System.out.println("Peso ----> " + pesoCarpeta + " KB\n");
 
                         JSONObject propiedades = new JSONObject();
                         propiedades.put("nombre", nombreCarpeta);
-                        propiedades.put("ubicacion", ubicacionCarpeta);
+                        propiedades.put("ubicacion", ubicacionCarpeta.replace("\\", "/"));
                         propiedades.put("extension", "Carpeta");
                         propiedades.put("peso", pesoCarpeta);
 
