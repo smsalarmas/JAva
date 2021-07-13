@@ -1,8 +1,8 @@
- {
-    "nombreJson":{        
-        "extensiones":[".dll", ".exe", ".docx", ".xlsx", ".png"],
-        "carpetas":["C:\\Usuarios\\Juan-Perez\\Mis Imagenes", "C:\\system32"],
-        "archivos":["virus.exe", "informacionConfidencial.txt"]
+{
+    "configuracion":{        
+        "extensiones":[".dll", ".exe", ".docx", ".xlsx", ".png", ".jpg"], //AQUI PONEN LAS EXTENSIONES QUE NO QUIEREN LEER 
+        "carpetas":["C:\\Usuarios\\Juan-Perez\\Mis Imagenes", "C:\\system32"], //AQUI LAS CARPETAS SENSIBLES QUE NO DEBERIAN LEERSE
+        "archivos":["virus.exe", "informacionConfidencial.txt"] // AQUI ARCHIVOS CONFIDENCIALES
 
         [{"ubicacion":"C://Users//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"}]
     }
