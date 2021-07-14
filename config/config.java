@@ -1,37 +1,53 @@
-package javaapplication1;
-import Java.io.FileNotFoundException;
-import Java.io.FileReader;
-import Java.io.IOException;
-import Java.util.Iterator;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class JavaApplication1 {
+public class Config{  
     
-        JSONParser parser = new JSONParser();
+    public static void main(String[] args) 
+    
+    {
+        //JSON parser object para convertir a objeto
+        JSONParser jsonParser = new JSONParser();
 
-        try {     
-            Object obj = parser.parse(new FileReader("C://Users//USUARIO//Documents//VS code//JavaScanFile//config//config.json");
+        try (FileReader reader = new FileReader("config/config.json"))
+        {
+            //Leer JSON
+            Object obj = jsonParser.parse(reader);
+            //Crear array de json (EXTENSIONES, CARPETAS Y ARCHIVOS SON ARRAYS)
+            JSONArray configList = new JSONArray();
 
-            JSONObject jsonObject =  (JSONObject) obj;
+            //Se agrega OBJ que es un JSONParser al JSONARRAY
+            configList.add(obj);            
+            //Se crea nuevo JSONObject para acceder a la propiedad 0 del JSON ("configuracion")
+            JSONObject employeeObject = (JSONObject) configList.get(0);
 
-            String name = (String) jsonObject.get("name");
-            System.out.println(name);
+            Object temp = employeeObject.get("configuracion");
 
-            String city = (String) jsonObject.get("city");
-            System.out.println(city);
+            JSONObject jsonResult = (JSONObject) temp;
+            System.out.println(jsonResult.size());
 
-            String job = (String) jsonObject.get("job");
-            System.out.println(job);
+            //Get employee object within list
+            JSONArray extensiones = (JSONArray) jsonResult.get("extensiones");
 
-            // loop array
-            JSONArray ubicacion = (JSONArray) jsonObject.get("ubicacion");
-            Iterator<String> iterator = ubicacion.iterator();
-            while (iterator.hasNext()) {
-             System.out.println(iterator.next());
+            ArrayList<String> Extensions = new ArrayList<String>();
+
+            for(int i = 0; i < extensiones.size(); i++){
+                String tempVar = (String) extensiones.get(i);
+                Extensions.add(tempVar);
             }
+
+            System.out.println(Extensions);
+
+            //setExtensiones(jsonResult.get("extensiones"));
+         
+ 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -40,4 +56,7 @@ public class JavaApplication1 {
             e.printStackTrace();
         }
     }
+
+    //"ubicacion":["C://Users//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"]
+
 }
