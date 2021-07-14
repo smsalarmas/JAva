@@ -8,33 +8,35 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class Config{  
-    
-    public static void main(String[] args) 
-    
+public class Config
+{    
+    public static void main(String[] args)
     {
-        //JSON parser object para convertir a objeto
+ 
         JSONParser jsonParser = new JSONParser();
 
         try (FileReader reader = new FileReader("config/config.json"))
+        
         {
-            //Leer JSON
+           
             Object obj = jsonParser.parse(reader);
-            //Crear array de json (EXTENSIONES, CARPETAS Y ARCHIVOS SON ARRAYS)
+           
             JSONArray configList = new JSONArray();
 
-            //Se agrega OBJ que es un JSONParser al JSONARRAY
             configList.add(obj);            
-            //Se crea nuevo JSONObject para acceder a la propiedad 0 del JSON ("configuracion")
+           
             JSONObject employeeObject = (JSONObject) configList.get(0);
 
-            Object temp = employeeObject.get("configuracion");
+            Object temp = employeeObject.get("configuracion"); //Aqui accedes a config.json ("configuracion" antes "nombreJson")
 
             JSONObject jsonResult = (JSONObject) temp;
-            System.out.println(jsonResult.size());
+            //System.out.println(jsonResult.size());
 
-            //Get employee object within list
-            JSONArray extensiones = (JSONArray) jsonResult.get("extensiones");
+            System.out.println("_____________________________________________________________");
+            
+
+         
+            JSONArray extensiones = (JSONArray) jsonResult.get("extensiones"); //Aqui accedes al arreglo extensiones
 
             ArrayList<String> Extensions = new ArrayList<String>();
 
@@ -45,8 +47,61 @@ public class Config{
 
             System.out.println(Extensions);
 
-            //setExtensiones(jsonResult.get("extensiones"));
-         
+            System.out.println("_____________________________________________________________");
+            
+
+
+            JSONArray carpetas = (JSONArray) jsonResult.get("carpetas"); //Aqui accedes al arreglo carpetas
+
+            ArrayList<String> Fold = new ArrayList<String>();
+
+            for(int i = 0; i < carpetas.size(); i++){
+                String tempVar1 = (String) carpetas.get(i);
+                Fold.add(tempVar1);
+            }
+
+            System.out.println(Fold);
+
+            System.out.println("_____________________________________________________________");
+            
+
+
+
+            JSONArray archivos = (JSONArray) jsonResult.get("archivos"); //Aqui accedes al arreglo archivos
+
+            ArrayList<String> File = new ArrayList<String>();
+
+            for(int i = 0; i < archivos.size(); i++){
+                String tempVar2 = (String) archivos.get(i);
+                File.add(tempVar2);
+            }
+
+            System.out.println(File);
+
+            System.out.println("_____________________________________________________________");
+
+
+            JSONArray ubicacion = (JSONArray) jsonResult.get("ubicacion"); //Aqui accedes al arreglo ubicacion
+
+            ArrayList<String> Loc = new ArrayList<String>();
+
+            for(int i = 0; i < ubicacion.size(); i++){
+                String tempVar3 = (String) ubicacion.get(i);
+                Loc.add(tempVar3);
+            }
+
+            System.out.println(Loc);
+
+            System.out.println("_____________________________________________________________");
+
+
+
+
+
+
+
+            
+
  
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -57,6 +112,6 @@ public class Config{
         }
     }
 
-    //"ubicacion":["C://Users//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"]
+     //"ubicacion":["C://Users//USUARIO//Documents//VS code//JavaScanFile","extension":".txt","nombre":"readme"]
 
 }
